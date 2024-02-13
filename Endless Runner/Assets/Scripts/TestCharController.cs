@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class TestCharController : MonoBehaviour
@@ -18,10 +19,11 @@ public class TestCharController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float hMovement = Input.GetAxis("Horizontal") * movementSpeed / 2;
-        float vMovement = Input.GetAxis("Vertical") * movementSpeed;
 
-        transform.Translate(new Vector3(hMovement, 0, vMovement) * Time.deltaTime);
+        float hMovement = Input.GetAxis("Horizontal") * movementSpeed / 2;
+        //float vMovement = Input.GetAxis("Vertical") * movementSpeed;
+
+        transform.Translate(new Vector3(hMovement, 0, movementSpeed) * Time.deltaTime);
         playerAnim.SetTrigger("walk");
     }
 
@@ -42,7 +44,7 @@ public class TestCharController : MonoBehaviour
 
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-            StartCoroutine(WaitAndRestart(0.5f));
+            StartCoroutine(WaitAndRestart(0.01f));
         }
     }
 

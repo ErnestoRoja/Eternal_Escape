@@ -14,7 +14,7 @@ public class BrainCollection : MonoBehaviour
         if (other.transform.tag == "Brain")
         {
             Brain++;
-            brainText.text = "Brains: " + Brain.ToString();
+            brainText.text = Brain.ToString();
             Debug.Log(Brain);
             Destroy(other.gameObject);
         }
