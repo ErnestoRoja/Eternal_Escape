@@ -7,24 +7,33 @@ using UnityEngine.SceneManagement;
 public class TestCharController : MonoBehaviour
 {
     public float movementSpeed = 10f;
+    public float horizontalMovementSpeed = 5f;
+    public float jumpForce = 10f;
     public SpawnManager spawnManager;
     public Animator playerAnim;
+    public Rigidbody rigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        float hMovement = Input.GetAxis("Horizontal") * movementSpeed / 2;
+        float hMovement = Input.GetAxis("Horizontal") * horizontalMovementSpeed;
         //float vMovement = Input.GetAxis("Vertical") * movementSpeed;
 
         transform.Translate(new Vector3(hMovement, 0, movementSpeed) * Time.deltaTime);
         playerAnim.SetTrigger("walk");
+
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            rigidBody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other) 

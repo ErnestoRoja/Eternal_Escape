@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028533, g: 0.225716, b: 0.30692443, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028533, g: 0.225716, b: 0.30692446, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -981,8 +981,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -581.093, y: 482.61}
-  m_SizeDelta: {x: 739.814, y: 88.787}
+  m_AnchoredPosition: {x: -536.87244, y: 482.61}
+  m_SizeDelta: {x: 828.2553, y: 88.787}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &988845369
 MonoBehaviour:
@@ -6188,6 +6188,8 @@ MonoBehaviour:
   - {fileID: 8342710809319450643, guid: 1967300fbf67f8e4a86b01740a59a66a, type: 3}
   - {fileID: 8342710809319450643, guid: 064c08cd48e6ccb4aa94fd4b25f4bd3b, type: 3}
   - {fileID: 8342710809319450643, guid: 959f27232d2d1fb4381ace12edbd4a21, type: 3}
+  - {fileID: 8342710809319450643, guid: 1ba3282db5e5c094ba49247d78b9eee3, type: 3}
+  - {fileID: 8342710809319450643, guid: 20e0519ed19228d45b5e30f55e3ab9bd, type: 3}
 --- !u!1 &1239714572 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7084425190186192981, guid: 4601b2bbc3869664e8dd3984d6fbb8c3, type: 3}
@@ -6946,8 +6948,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  horizontalMovementSpeed: 5
+  jumpForce: 14
   spawnManager: {fileID: 1234453948}
   playerAnim: {fileID: 2098946487}
+  rigidBody: {fileID: 0}
 --- !u!95 &2098946487 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4972802055694576266, guid: f99bbd0754201f448b27f0c455b92b76, type: 3}
@@ -7003,8 +7008,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -618, y: 378}
-  m_SizeDelta: {x: 287.0159, y: 81.4327}
+  m_AnchoredPosition: {x: -527.3668, y: 378}
+  m_SizeDelta: {x: 468.2824, y: 81.4327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107356213
 MonoBehaviour:
@@ -7089,7 +7094,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0.046859723}
+  m_margin: {x: 0, y: 0, z: -0.88880926, w: 0.046859723}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
