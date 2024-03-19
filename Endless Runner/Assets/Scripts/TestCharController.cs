@@ -12,6 +12,7 @@ public class TestCharController : MonoBehaviour
     public SpawnManager spawnManager;
     public Animator playerAnim;
     public Rigidbody rigidBody;
+    public GameObject gameOverMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,7 @@ public class TestCharController : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
             gameObject.GetComponent<TestCharController>().movementSpeed = 0f;
+            gameObject.GetComponent<TestCharController>().horizontalMovementSpeed = 0f;
 
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
@@ -60,6 +62,7 @@ public class TestCharController : MonoBehaviour
     private IEnumerator WaitAndRestart(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        SceneManager.LoadScene("SampleScene");
+
+        gameOverMenu.SetActive(true);
     }
 }
