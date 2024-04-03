@@ -7,6 +7,7 @@ TagManager:
   - SpawnTrigger
   - Brain
   - Obstacle
+  - Audio
   layers:
   - Default
   - TransparentFX

@@ -30,13 +30,17 @@ public class MenuController : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Quit");
         Application.Quit();
     }
 
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");
+    }
+
+    public void Tutorial2()
+    {
+        SceneManager.LoadScene("Tutorial2");
     }
 
     public void Credits()

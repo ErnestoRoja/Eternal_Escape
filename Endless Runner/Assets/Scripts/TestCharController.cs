@@ -13,11 +13,20 @@ public class TestCharController : MonoBehaviour
     public Animator playerAnim;
     public Rigidbody rigidBody;
     public GameObject gameOverMenu;
+    AudioManager audioManager;
+
+    private PlayerRagdoll playerRagdoll;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        playerRagdoll = GetComponent<PlayerRagdoll>();
     }
 
     // Update is called once per frame
@@ -33,6 +42,7 @@ public class TestCharController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             rigidBody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            audioManager.PlaySFX(audioManager.jump);
         }
 
     }
@@ -49,11 +59,13 @@ public class TestCharController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            gameObject.GetComponent<TestCharController>().movementSpeed = 0f;
-            gameObject.GetComponent<TestCharController>().horizontalMovementSpeed = 0f;
+            audioManager.PlaySFX(audioManager.death);
+            // gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            // gameObject.GetComponent<TestCharController>().movementSpeed = 0f;
+            // gameObject.GetComponent<TestCharController>().horizontalMovementSpeed = 0f;
 
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            playerRagdoll.SetRagdollState(true);
 
             StartCoroutine(WaitAndRestart(0.01f));
         }
