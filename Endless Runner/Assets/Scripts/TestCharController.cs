@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class TestCharController : MonoBehaviour
 {
-    public float movementSpeed = 10f;
     public float horizontalMovementSpeed = 5f;
+    public float initialMovementSpeed = 10f;
+    private float distanceTraveled = 0f;
+    private float currentMovementSpeed;
     public float jumpForce = 10f;
+    private bool isGrounded = true;
     public SpawnManager spawnManager;
     public Animator playerAnim;
     public Rigidbody rigidBody;
@@ -34,15 +37,27 @@ public class TestCharController : MonoBehaviour
     {
 
         float hMovement = Input.GetAxis("Horizontal") * horizontalMovementSpeed;
-        //float vMovement = Input.GetAxis("Vertical") * movementSpeed;
+        distanceTraveled += currentMovementSpeed * Time.deltaTime;
+        currentMovementSpeed = initialMovementSpeed + (distanceTraveled * 0.01f);
 
-        transform.Translate(new Vector3(hMovement, 0, movementSpeed) * Time.deltaTime);
+        transform.Translate(new Vector3(hMovement, 0, currentMovementSpeed) * Time.deltaTime);
         playerAnim.SetTrigger("walk");
 
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (rigidBody.velocity.y == 0)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded= false;
+             
+        }
+
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space)) 
         {
             rigidBody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             audioManager.PlaySFX(audioManager.jump);
+            isGrounded = false;
         }
 
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BrainCollection : MonoBehaviour
 {
-    private int Brain = 0;
+    public int Brain = 0;
     public TextMeshProUGUI brainText;
     public SpawnManager spawnManager;
 

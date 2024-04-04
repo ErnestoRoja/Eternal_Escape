@@ -43,6 +43,16 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Tutorial2");
     }
 
+    public void Tutorial3()
+    {
+        SceneManager.LoadScene("Tutorial3");
+    }
+
+    public void Tutorial4()
+    {
+        SceneManager.LoadScene("Tutorial4");
+    }
+
     public void Credits()
     {
         SceneManager.LoadScene("Credits");

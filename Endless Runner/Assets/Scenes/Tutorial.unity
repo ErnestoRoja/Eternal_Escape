@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Avoid obstacles by moving left and right using A and D, or arrow keys.
+  m_text: Avoid obstacles by moving left and right using A and D, or arrow keys
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6fd5cf3375f7d8a4eb5a063c45b7b2e6, type: 2}
   m_sharedMaterial: {fileID: -6708304093656911553, guid: 6fd5cf3375f7d8a4eb5a063c45b7b2e6, type: 2}

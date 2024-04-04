@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028533, g: 0.225716, b: 0.30692443, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028533, g: 0.225716, b: 0.30692446, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 298297636}
   - component: {fileID: 298297635}
   - component: {fileID: 298297634}
+  - component: {fileID: 298297638}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -483,6 +484,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &298297638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298297633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d8d693a54ac9e4a9d661d9ef84f165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &303595732 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5279196901065953422, guid: 4615cd85f2959d04c8c29a293c9a5293, type: 3}
