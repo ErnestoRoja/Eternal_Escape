@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseUI;
+    private bool isPlayerAlive = true;
 
     private void Start()
     {
@@ -15,22 +16,29 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
             PauseGame();
-
         }
     }
 
     public void PauseGame()
     {
-        Time.timeScale = 0f;
-        TogglePauseUI(true);
+        if (isPlayerAlive)
+        {
+            Time.timeScale = 0f;
+            TogglePauseUI(true);
+        }
+        
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
-        TogglePauseUI(false);
+
+        if (isPlayerAlive)
+        {
+            Time.timeScale = 1f;
+            TogglePauseUI(false);
+        }
+        
     }
 
     public void TogglePauseUI(bool isPaused)
@@ -38,4 +46,8 @@ public class GameManager : MonoBehaviour
         pauseUI.SetActive(isPaused);
     }
 
+    public void SetPlayerAlive(bool alive)
+    {
+        isPlayerAlive = alive;
+    }
 }

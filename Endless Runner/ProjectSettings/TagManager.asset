@@ -8,6 +8,7 @@ TagManager:
   - Brain
   - Obstacle
   - Audio
+  - GameManager
   layers:
   - Default
   - TransparentFX

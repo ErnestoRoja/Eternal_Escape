@@ -10,6 +10,7 @@ public class TestCharController : MonoBehaviour
     public float initialMovementSpeed = 10f;
     private float distanceTraveled = 0f;
     private float currentMovementSpeed;
+    private bool isPlayerAlive = true;
     public float jumpForce = 10f;
     private bool isGrounded = true;
     public SpawnManager spawnManager;
@@ -72,15 +73,13 @@ public class TestCharController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) 
     {
-        if (collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle" && isPlayerAlive)
         {
             audioManager.PlaySFX(audioManager.death);
-            // gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            // gameObject.GetComponent<TestCharController>().movementSpeed = 0f;
-            // gameObject.GetComponent<TestCharController>().horizontalMovementSpeed = 0f;
-
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             playerRagdoll.SetRagdollState(true);
+
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().SetPlayerAlive(false);
 
             StartCoroutine(WaitAndRestart(0.01f));
         }
